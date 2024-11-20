@@ -1,0 +1,2 @@
+Customer Alice collected parcel P001 with a fee of £5.85
+Customer Bob collected parcel P002 with a fee of £7.7
