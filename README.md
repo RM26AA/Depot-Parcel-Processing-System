@@ -85,24 +85,6 @@ Core Classes
   - Entry point for the application.
   - Initializes core components, loads data, and sets up the GUI and controller.
 
-## File Structure
-
-```bash
-/src
-│
-├── Manager.java           # Entry point for the application
-├── DepotView.java         # GUI for the application
-├── DepotController.java   # Controller to manage logic and communication
-├── Customer.java          # Represents a customer
-├── Parcel.java            # Represents a parcel
-├── QueueOfCustomers.java  # Manages a queue of customers
-├── ParcelMap.java         # Manages a map of parcels
-├── Worker.java            # Handles parcel collection logic
-├── Log.java               # Singleton class for logging system events
-│
-├── Customers.csv          # Sample customer data
-└── Parcels.csv            # Sample parcel data
-
 ## Future Improvements
 1. Error Handling:
 - Add better exception handling for missing or corrupted data files.
@@ -115,19 +97,19 @@ Core Classes
 
 ## Sample CSV File Formats
 
-Customers.csv
-```bash
-customerID,name,parcelID
-C001,John Doe,X123
-C002,Jane Smith,X124
-C003,Mark Brown,X125
+1. Customers.csv
+ ```bash
+ customerID,name,parcelID
+ C001,John Doe,X123
+ C002,Jane Smith,X124
+ C003,Mark Brown,X125
 
-Parcels.csv
-```bash
-parcelID,dimensions,weight,daysInDepot,status
-X123,10x10x20,5.5,3,Waiting
-X124,12x15x10,8.0,5,Waiting
-X125,5x5x5,2.5,1,Waiting
+2. Parcels.csv
+ ```bash
+ parcelID,dimensions,weight,daysInDepot,status
+ X123,10x10x20,5.5,3,Waiting
+ X124,12x15x10,8.0,5,Waiting
+ X125,5x5x5,2.5,1,Waiting
 
 Enjoy using the Depot Parcel Processing System! For questions or issues, please feel free to contact me.
 
