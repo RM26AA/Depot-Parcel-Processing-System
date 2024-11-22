@@ -89,19 +89,17 @@ Core Classes
 1. This is what the file structure may look like:
    ```bash
    /src
-  │
-  ├── Manager.java           # Entry point for the application
-  ├── DepotView.java         # GUI for the application
-  ├── DepotController.java   # Controller to manage logic and communication
-  ├── Customer.java          # Represents a customer
-  ├── Parcel.java            # Represents a parcel
-  ├── QueueOfCustomers.java  # Manages a queue of customers
-  ├── ParcelMap.java         # Manages a map of parcels
-  ├── Worker.java            # Handles parcel collection logic
-  ├── Log.java               # Singleton class for logging system events
-  │
-  ├── Customers.csv          # Sample customer data
-  └── Parcels.csv            # Sample parcel data
+   Manager.java           # Entry point for the application
+   DepotView.java         # GUI for the application
+   DepotController.java   # Controller to manage logic and communication
+   Customer.java          # Represents a customer
+   Parcel.java            # Represents a parcel
+   QueueOfCustomers.java  # Manages a queue of customers
+   ParcelMap.java         # Manages a map of parcels
+   Worker.java            # Handles parcel collection logic
+   Log.java               # Singleton class for logging system events
+   Customers.csv          # Sample customer data
+   Parcels.csv            # Sample parcel data
 
 
 ## Future Improvements
