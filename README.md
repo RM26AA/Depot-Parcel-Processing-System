@@ -85,6 +85,25 @@ Core Classes
   - Entry point for the application.
   - Initializes core components, loads data, and sets up the GUI and controller.
 
+## File Structure
+1. This is what the file structure may look like:
+   ```bash
+   /src
+  │
+  ├── Manager.java           # Entry point for the application
+  ├── DepotView.java         # GUI for the application
+  ├── DepotController.java   # Controller to manage logic and communication
+  ├── Customer.java          # Represents a customer
+  ├── Parcel.java            # Represents a parcel
+  ├── QueueOfCustomers.java  # Manages a queue of customers
+  ├── ParcelMap.java         # Manages a map of parcels
+  ├── Worker.java            # Handles parcel collection logic
+  ├── Log.java               # Singleton class for logging system events
+  │
+  ├── Customers.csv          # Sample customer data
+  └── Parcels.csv            # Sample parcel data
+
+
 ## Future Improvements
 1. Error Handling:
 - Add better exception handling for missing or corrupted data files.
@@ -111,7 +130,7 @@ Core Classes
    X124,12x15x10,8.0,5,Waiting
    X125,5x5x5,2.5,1,Waiting
 
-- Enjoy using the Depot Parcel Processing System! For questions or issues, please feel free to contact me.
+Enjoy using the Depot Parcel Processing System! For questions or issues, please feel free to contact me.
 
 
 
