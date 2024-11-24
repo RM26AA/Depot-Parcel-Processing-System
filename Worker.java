@@ -2,22 +2,20 @@ public class Worker {
     private QueueOfCustomers customerQueue;
     private ParcelMap parcelMap;
     private Log log;
+    private Parcel currentParcel;
 
-    public Worker(QueueOfCustomers customerQueue, ParcelMap parcelMap, Log log)
-    {
+    public Worker(QueueOfCustomers customerQueue, ParcelMap parcelMap, Log log) {
         this.customerQueue = customerQueue;
         this.parcelMap = parcelMap;
         this.log = log;
     }
 
-    //calculate collection fee based on weight and days in depot
-    private float calculateFee(Parcel parcel)
-    {
-        float fee = parcel.getWeight() * 0.5f + parcel.getDaysInDepot() * 0.2f;
-        return fee;
+    // Calculate collection fee
+    private float calculateFee(Parcel parcel) {
+        return parcel.getWeight() * 0.5f + parcel.getDaysInDepot() * 0.2f;
     }
 
-    //process the next customer in the queue
+    // Process the next customer in the queue
     public void processNextCustomer() {
         Customer customer = customerQueue.dequeue();
         if (customer == null) {
@@ -25,21 +23,20 @@ public class Worker {
             return;
         }
 
-        Parcel parcel = parcelMap.findParcel(customer.getParcelID());
-        if (parcel == null) {
+        currentParcel = parcelMap.findParcel(customer.getParcelID());
+        if (currentParcel != null) {
+            float fee = calculateFee(currentParcel);
+            currentParcel.setStatus("Collected");
+            log.logEvent("Customer " + customer.getName() + " collected parcel " + currentParcel.getParcelID() + " with a fee of $" + fee);
+            System.out.println("Processed parcel for " + customer.getName());
+        } else {
             System.out.println("Parcel not found for customer " + customer.getName());
-            log.logEvent("Parcel not found for customer " + customer.getName());
-            return;
         }
+    }
 
-        //calculate the fee
-        float fee = calculateFee(parcel);
-        System.out.println("Customer " + customer.getName() + " is collecting parcel " + parcel.getParcelID());
-        System.out.println("Collection Fee: £" + fee);
-
-        //update parcel status to 'Collected'
-        parcel.setStatus("Collected");
-        log.logEvent("Customer " + customer.getName() + " collected parcel " + parcel.getParcelID() + " with a fee of £" + fee);
+    public String getCurrentParcelInfo() {
+        return currentParcel != null ? currentParcel.getParcelID() : "No parcel being processed";
     }
 }
+
 
