@@ -60,6 +60,7 @@ public class Manager {
 
          */
 
+        /*
         //GUI testing
         // Initialize the core components
         QueueOfCustomers queue = new QueueOfCustomers();
@@ -86,7 +87,22 @@ public class Manager {
         DepotView view = new DepotView();
         DepotController controller = new DepotController(view, queue, parcelMap, worker);
 
-        // Application is now running with the GUI open
+        // Application is now running with the GUI open */
+
+        //NEW testing with reading data from csv file for customer and parcel
+        // Initialize core components
+        QueueOfCustomers queue = new QueueOfCustomers();
+        ParcelMap parcelMap = new ParcelMap();
+        Log log = Log.getInstance();
+        Worker worker = new Worker(queue, parcelMap, log);
+
+        // Load data from CSV files
+        parcelMap.readParcelsFromCSV("Parcels.csv");
+        queue.readCustomersFromCSV("cutomers1.csv");
+
+        // Initialize the GUI
+        DepotView view = new DepotView();
+        DepotController controller = new DepotController(view, queue, parcelMap, worker);
 
 
 
